@@ -8,10 +8,9 @@ def universalGravitation(b1,b2,G,returnsAcceleration = False):
     distance = math.dist(b1[0],b2[0])
     xDistance = (b2[0][0]-b1[0][0])
     yDistance = (b2[0][1]-b1[0][1])
-    forceMagnitude = min(GRAVITY_MAX,G * (b1[1]*b2[1])/(distance**2))
+    forceMagnitude = G * (b1[1]*b2[1])/(distance**2)
     theta = math.atan2(yDistance,xDistance)
-    print(forceMagnitude)
-    force = (forceMagnitude*math.cos(theta),forceMagnitude*math.sin(theta))
+    force = (min(GRAVITY_MAX,forceMagnitude*math.cos(theta)),min(GRAVITY_MAX,forceMagnitude*math.sin(theta)))
     # force = (forceMagnitude*b2[0][0]-b1[0][0],forceMagnitude*b2[0][1]-b1[0][1])
     if not(returnsAcceleration):
         return force
