@@ -13,6 +13,7 @@ def f(n):
 print('   x  |   y  |   y\'  ')
 for i in range(inc+1):
     print(f'{f(x)}|{f(y)}|{f(yPrime(x,y))}')
-    y+= h*yPrime(x,y)
+    y_S=y + h*yPrime(x,y)
+    y+= h * ((yPrime(x,y) + yPrime(x+h,y_S)))
     x+= h
 
